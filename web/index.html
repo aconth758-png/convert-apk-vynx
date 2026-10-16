@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#eaf6ff"><title>Vynx APK Builder</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top"><div class="brand"><span class="mark">V</span><div><b>Vynx APK Builder</b><small>Web to Android Studio build</small></div></div><span class="status"><i></i> Build workspace</span></header>
+<main>
+<section class="hero"><p class="eyebrow">ANDROID APP GENERATOR</p><h1>Ubah website jadi<br><span>aplikasi Android.</span></h1><p class="sub">Upload HTML/ZIP atau masukkan URL. Atur identitas aplikasi, pilih icon, lalu build APK.</p></section>
+<form id="buildForm">
+<section class="panel"><div class="section-title"><span class="num">01</span><div><h2>Sumber aplikasi</h2><p>Pilih file lokal atau website online.</p></div></div>
+<div class="tabs"><label><input type="radio" name="sourceType" value="zip" checked><span>HTML / ZIP</span></label><label><input type="radio" name="sourceType" value="url"><span>Link website</span></label></div>
+<div id="fileSource" class="source-pane"><label class="drop" for="sourceFile"><span class="upload-icon">↑</span><b>Pilih file HTML atau ZIP</b><small>HTML, ZIP · maksimal sesuai konfigurasi server</small><input id="sourceFile" type="file" accept=".html,.htm,.zip" required><span id="fileName" class="filename">Belum ada file dipilih</span></label></div>
+<div id="urlSource" class="source-pane hidden"><label class="field"><span>URL website</span><input id="websiteUrl" type="url" placeholder="https://contoh.com"><small>Website harus bisa diakses dari server dan mengizinkan tampilan WebView.</small></label></div>
+</section>
+<section class="panel"><div class="section-title"><span class="num">02</span><div><h2>Identitas aplikasi</h2><p>Informasi yang tampil di Android.</p></div></div>
+<div class="fields"><label class="field"><span>Nama aplikasi</span><input id="appName" maxlength="40" value="Vynx App" required></label><label class="field"><span>Package name</span><input id="packageName" value="com.vynx.webapp" pattern="[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z][A-Za-z0-9_]*)+" required><small>Contoh: com.nama.aplikasi</small></label><label class="field"><span>Min SDK</span><select id="minSdk"><option value="23">23 · Android 6.0</option><option value="24">24 · Android 7.0</option><option value="26">26 · Android 8.0</option><option value="28">28 · Android 9</option><option value="29">29 · Android 10</option></select></label><label class="field"><span>Target SDK</span><select id="targetSdk"><option value="36" selected>36 · Android 16</option><option value="35">35 · Android 15</option><option value="34">34 · Android 14</option></select></label><label class="field"><span>Version name</span><input id="versionName" value="1.0.0" required></label><label class="field"><span>Version code</span><input id="versionCode" type="number" min="1" value="1" required></label></div>
+<div class="icon-row"><div class="icon-preview" id="iconPreview">V</div><div class="icon-info"><b>Icon aplikasi</b><p>Pilih gambar dari file manager. PNG disarankan, bentuk persegi.</p><label class="file-button" for="iconFile">Pilih icon</label><input id="iconFile" type="file" accept="image/png,image/jpeg,image/webp" hidden><span id="iconName">Icon default Vynx</span></div></div>
+</section>
+<section class="panel"><div class="section-title"><span class="num">03</span><div><h2>Build APK</h2><p>Worker Android akan mengompilasi project.</p></div></div>
+<div class="notice"><b>Info:</b> APK hasil starter ini berupa debug APK untuk pengujian, belum ditandatangani untuk distribusi Play Store. Website Vercel saja tidak menyediakan Android SDK build environment; worker terpisah wajib berjalan.</div>
+<button id="buildBtn" class="primary" type="submit">Build APK <span>→</span></button>
+<div id="progressWrap" class="progress-wrap hidden"><div class="progress-line"><span id="progressBar"></span></div><p id="progressText">Menyiapkan build…</p><pre id="buildLog"></pre></div>
+<div id="result" class="result hidden"></div>
+</section>
+</form>
+<footer>Vynx APK Builder <span>•</span> Clean blue interface</footer>
+</main><script src="/config.js"></script><script src="/app.js"></script>
+</body></html>
